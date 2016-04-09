@@ -4,42 +4,27 @@
 <meta charset="UTF-8">
 <title>isReady_isComplete</title>
 <script type="text/javascript">
-(function(doc){
- 'use strict';
- var $d=document, $w=$d.defaultView||window,
+//START
+(function($){
+ var w=$,
+ d=w.document,
+ at=function(e,s,f,b){var x=e,i=function(o){f(o);x.removeEventListener(s,i);};x.addEventListener(s,i,b===true);},
+ at$=function(s,f,b){at()},
+ //…
 
- on=$w.addEventListener||function(s,r){$w.attachEvent('on'+s,r);},
- stopListen=$w.removeEventListener||function(s,r){$w.detachEvent('on'+s,r);},
- at=function(s,f,b){var g=function(evt){f(evt);stopListen(s,g);};on(s,g,b&&true);},
+ isReady=function(evt){var o=evt;console.log('isReady',o);},
+ isComplete=function(evt){var o=evt;console.log('isComplete',o);},
 
- log=(function(c){return c?function(){var o=c;o.log.apply(o,arguments);}:dummy;})($w.console),
+ //…
 
- isReady=function(evt){
-	log('isReady');
- },
-
- isComplete=function(evt){
-	log('isComplete');
- },
-
- lastvar;
+ endvar;
  //Run:
- if($d.readyState==='complete'){
-  isReady(false);
-  isComplete(false);
- }else{
-  if('ondomcontentloaded' in $w){//supportDOMContentLoaded
-	at('DOMContentLoaded',isReady);
-	at('load',isComplete);
-  }else{
-	 at('load',function(evt){
-	  isReady(false);
-	  isComplete(evt);
-	 });
-  };
- };
+ (function(s,r,c){
+  var a=r,b=c,e,f;
+  if(s!=='complete'){f=at;e=w;f(e,'DOMContentLoaded',a);f(e,'load',b);}else{a(false);b(false);};
+ })(d.readyState,isReady,isComplete);
 
-})(document);
+})(window);
 //END.
 </script>
 </head>
