@@ -2,3 +2,9 @@
  Call=FnProto.call.bind(FnProto.bind),
  
  //shorthand call(method,this)
+ 
+ 
+ Call=(function(e){return e.call.bind(e.bind);})(w.Function.prototype),
+ log=(function(o){const e=o,c=Call,f=c(e.log,e);f.obj=c(e.dir,e);return f;})(w.console),
+
+ 
