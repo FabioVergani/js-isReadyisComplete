@@ -1,0 +1,4 @@
+ FnProto=Function.prototype,
+ Call=FnProto.call.bind(FnProto.bind),
+ 
+ //shorthand call(method,this)
