@@ -52,7 +52,16 @@
  d.title='Loading..';
  w.info={
 	support:{
-		bind:e?(p=(w.Call=p.call.bind(e))(d.getElementById,d),f=w.Call(d.createElement,d),true):(p=function(s){return document.getElementById(s)},f=function(s){return document.createElement(s)},false),
+		bind:e?(
+		 p=(w.Call=p.call.bind(e))(d.getElementById,d),f=w.Call(d.createElement,d),
+		 true
+		):(
+		 e=p.bind=function(o){var s=w.Array.prototype.slice,m=s.call(arguments,1),f=this,a=function(){},b=function(){var e=this;return f.apply(e instanceof a?e:o,m.concat(s.call(arguments)));};if(e=f.prototype){a.prototype=e;};b.prototype=new a();return b;},
+		 w.Call=p.call.bind(e),
+		 p=function(s){return document.getElementById(s)},
+		 f=function(s){return document.createElement(s)},
+		 false
+		),
 		scrollIntoView:Boolean(w.Element.prototype.scrollIntoView),
 		__proto__:null
 	},
