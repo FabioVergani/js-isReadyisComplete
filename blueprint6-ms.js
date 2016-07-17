@@ -1,12 +1,41 @@
 (function($w){'use strict';
  function dummy(){}
  function isReady(evt){
+	function handlePageScroll(evt){
+		var i=evt.target,e=i.body,o=e.scrolling,y=o.y,j=y.prev,f,m;
+		if(o.listen!==false){
+			i=y.curr=y.prev=e.scrollTop;
+			o=o.react.atReaching.Bottom;
+			if(o.enabled && i>j){//direction:down
+			 e=e.ownerDocument.documentElement;
+			 if((e.scrollHeight-(i+e.clientHeight))===0){
+				console.warn('@PageBottom');
+				o.actions.each(function(x){//registered-behvior-sequence
+					if(x && x.isEnabled){
+						x();//assume:typeof==='function'
+					}else{
+						console.log(x);
+					};
+				});
+			 };
+			};
+		};
+	};
+	//
 	var o,e=evt,d=e.target||e,w=d.defaultView,on=w.on,$first=w.$first,dBody=d[e='body']||(d[e]=$first(e)),dHtml=d.documentElement;
 	if(!dBody[e='ownerDocument']){HEp[e]=dBody[e]=d;};
+	dBody.scrolling={listen:true,y:{curr:(e=dBody.scrollTop),prev:e},react:{atReaching:{Bottom:{enabled:true,actions:[]}}}};
 	e=null;
-//---
-	w.getTextFile=function(x){var o=new XMLHttpRequest();o.open('GET',x,true);o.overrideMimeType('text/plain; charset=x-user-defined');o.send(null);return o;}
+	(w.listenPageScroll=function(k){
+		var e=d,f=w[k?'on':'stopListen'],x=handlePageScroll;
+		f(e,'scroll',x);
+		f(e,'touchmove',x);
+		dBody.scrolling.listen=k;
+	})(true);
 
+//---
+
+	w.getTextFile=function(x){var o=new XMLHttpRequest();o.open('GET',x,true);o.overrideMimeType('text/plain; charset=x-user-defined');o.send(null);return o;}
 //---
 	dHtml.swapClass('loading','ready');
 	d.title=d.titleOriginal;
@@ -97,4 +126,4 @@
  d.titleOriginal=d.title;
  d.title='Loading..';
 })(window);
-//END.
+//END
