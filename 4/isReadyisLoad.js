@@ -2,7 +2,7 @@
  function at(e,s,f,x){function a(){e.removeEventListener(s,i)}function i(o){a();f(o)}a();e.addEventListener(s,i,x)};
  function swapClass(e,a,b){var o=e.classList;o.remove(a);o.add(b);return o;}
  function a(evt){//isReady
-  const d=evt.target, dE=d.documentElement;
+  const d=evt.target, w=d.defaultView, dE=d.documentElement;
 	swapClass(dE,'loaded','loading').add('ready');
 
 	//‹‹‹
@@ -10,7 +10,7 @@
 	//‹‹‹
  }
  function b(evt){//isLoad
-	const d=evt.target, dE=d.documentElement;
+	const d=evt.target, w=d.defaultView, dE=d.documentElement;
 	let s;
 	//‹‹‹
 
