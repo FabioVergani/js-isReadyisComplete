@@ -18,8 +18,7 @@
 	console.log('');
 
 	//‹‹‹
-	swapClass(dE,'ready','loaded');
-	if(s=d.titleOriginal){d.title=s}
+	if(s=d.titleOriginal){d.title=s};swapClass(dE,'ready','loaded')
  }
  let d=w.document;
  if(d.readyState!=='complete'){
