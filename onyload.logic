@@ -1,0 +1,11 @@
+(function(w){
+ function on(a,b){$Rem(a,b);$Add(a,b)}
+ function at(a,b){on(a,function f(x){b(x);$Rem(a,f)})}
+ function f(evt){
+	const $d=evt.target,$dE=$d.documentElement;
+	console.dir((evt))
+ }
+ const $=w,$d=$.document,$Rem=$.removeEventListener,$Add=$.addEventListener;
+ if($d.readyState!=='complete'){at('load',f)}else{f({target:$d})}
+})(window);
+//========
