@@ -1,11 +1,11 @@
 (function(w){
- function on(a,b){rE(a,b);aE(a,b)}
- function at(a,b){on(a,function f(x){b(x);rE(a,f)})}
+ function on(a,b){$rem(a,b);$add(a,b)}
+ function at(a,b){on(a,function f(x){b(x);$rem(a,f)})}
  function f(evt){
 	const $d=evt.target,$dE=$d.documentElement;
-	console.dir((evt))
+	console.dir(evt)
  }
- const $=w,$d=$.document,rE=$.removeEventListener,aE=$.addEventListener;
+ const $=w,$d=$.document,$rem=$.removeEventListener,$add=$.addEventListener;
  $d.readyState!=='complete'?at('load',f):f({target:$d})
 })(window);
 
