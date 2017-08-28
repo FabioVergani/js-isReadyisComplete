@@ -1,4 +1,16 @@
 (function(w){
+ function on(a,b){rE(a,b);aE(a,b)}
+ function at(a,b){on(a,function f(x){b(x);rE(a,f)})}
+ function f(evt){
+	const $d=evt.target,$dE=$d.documentElement;
+	console.dir((evt))
+ }
+ const $=w,$d=$.document,rE=$.removeEventListener,aE=$.addEventListener;
+ $d.readyState!=='complete'?at('load',f):f({target:$d})
+})(window);
+
+//====
+(function(w){
  function on(a,b){$Rem(a,b);$Add(a,b)}
  function at(a,b){on(a,function f(x){b(x);$Rem(a,f)})}
  function f(evt){
