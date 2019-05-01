@@ -1,0 +1,21 @@
+(w=>{
+	const d=w.document,
+	ƒ=isLoaded=>{
+		const d=isLoaded.target;
+		//...
+	},
+	onceWhen=(e,s,c)=>{
+		let f=o=>{
+			e.removeEventListener(s,f);
+			f=null;
+			c(o)
+		};
+		e.addEventListener(s,f)
+	};
+	//
+	if('complete'!==d.readyState){
+		onceWhen(w,'load',ƒ)
+	}else{
+		ƒ({target:d})
+	}
+})(window);
