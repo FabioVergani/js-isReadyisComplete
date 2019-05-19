@@ -5,9 +5,9 @@ f=w=>{
 };
 //====================================
 if('complete'!==w.document.readyState){
-	const g=o=>{
+	const g=e=>{
 		w.removeEventListener('load',g);
-		f(o)
+		f(e.currentTarget)
 	};
 	w.addEventListener('load',g)
 }else{
