@@ -1,0 +1,13 @@
+(w=>{
+	const f=event=>{
+		const w=event.currentTarget;
+		if('load'===event.type){w.removeEventListener('load',f)};
+		console.log('demo!');
+		//..
+	};
+	if('complete'!==w.document.readyState){
+		w.addEventListener('load',f)
+	}else{
+		f({currentTarget:w})
+	}
+})(window);
