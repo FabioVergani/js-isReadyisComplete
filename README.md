@@ -1,3 +1,24 @@
+```
+
+($w=>{
+	const $d = $w.document;
+	const isReady = () => {
+		//
+		console.dir($d);
+		//
+	};
+	if('complete' !== $d.readyState){
+		$d.addEventListener('DOMContentLoaded',isReady,{once:true})
+	}else{
+		isReady()
+	}
+})(window);
+
+```
+
+
+
+
 # js-isReadyisComplete
 template
 
